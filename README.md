@@ -21,7 +21,7 @@ Ensure you have the following installed:
 git clone https://github.com/your-username/FamilyHealthEdut.git  
 cd FamilyHealthEdut  
 ![image alt](https://github.com/Aashuranjan/FamilyHealthEdu/blob/ef119ef659ab09910a12a06d608b737f375c5514/Login%20page.png)
-![image alt](https://github.com/Aashuranjan/FamilyHealthEdu/blob/ef119ef659ab09910a12a06d608b737f375c5514/Login%20page.png)
+![image alt](https://github.com/Aashuranjan/FamilyHealthEdu/blob/c8e7ef10633278d4b444f539b376fc66d765cb17/Home%20page.png)
 ![image alt](https://github.com/Aashuranjan/FamilyHealthEdu/blob/ef119ef659ab09910a12a06d608b737f375c5514/Login%20page.png)
 ![image alt](https://github.com/Aashuranjan/FamilyHealthEdu/blob/ef119ef659ab09910a12a06d608b737f375c5514/Login%20page.png)
 ![image alt](https://github.com/Aashuranjan/FamilyHealthEdu/blob/ef119ef659ab09910a12a06d608b737f375c5514/Login%20page.png)
