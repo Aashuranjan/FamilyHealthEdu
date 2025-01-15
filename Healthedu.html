@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Education Resources</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.9), rgba(44, 82, 130, 0.9)),
+                        url('/api/placeholder/1200/400');
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: -2rem auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-card h3 {
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .featured-resources {
+            margin: 4rem 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+        }
+
+        .resource-content h3 {
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-tag {
+            display: inline-block;
+            background: #ebf8ff;
+            color: #2c5282;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            margin: 0.5rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #2c5282;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #2b6cb0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #2c5282;
+            margin-bottom: 2rem;
+        }
+
+        .video-section {
+            background: white;
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-placeholder {
+            background: #e2e8f0;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Health Education Resources</h1>
+        <p>Explore our comprehensive collection of health education materials designed to help you make informed decisions about your health and well-being.</p>
+    </section>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search health topics, articles, or videos...">
+        </div>
+
+        <section class="categories">
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="Heart.jpg" alt="Heart Health" class="category-image">
+                </div>
+                <h3>Heart Health</h3>
+                <p>Learn about cardiovascular health, prevention, and management of heart conditions.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="Mental.jpg" alt="Mental Health" class="category-image">
+                </div>
+                <h3>Mental Health</h3>
+                <p>Resources for understanding and maintaining good mental health and wellness.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="Child.jpg" alt="Child Health" class="category-image">
+                </div>
+                <h3>Child Health</h3>
+                <p>Information about pediatric health, development, and childcare.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="Nutrition.jpg" alt="Nutrition" class="category-image">
+                </div>
+                <h3>Nutrition</h3>
+                <p>Guidance on healthy eating, diet planning, and nutritional requirements.</p>
+            </div>
+        </section>
+
+        <section class="featured-resources">
+            <h2 class="section-title">Featured Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <img src="Living.jpg" alt="Healthy Living Guide" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Guide</span>
+                        <h3>Complete Guide to Healthy Living</h3>
+                        <p>Comprehensive guide covering diet, exercise, sleep, and stress management.</p>
+                        <a href="#" class="btn">
+                            <i data-lucide="file-text" size="18"></i>
+                            Read More
+                        </a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <img src="Excersise.jpg" alt="Exercise Guide" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Exercise</span>
+                        <h3>Home Workout Routines</h3>
+                        <p>Simple and effective exercises you can do at home without equipment.</p>
+                        <a href="#" class="btn">
+                            <i data-lucide="file-text" size="18"></i>
+                            Read More
+                        </a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <img src="Mentalh.jpg" alt="Mental Health Guide" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Mental Health</span>
+                        <h3>Stress Management Techniques</h3>
+                        <p>Learn effective strategies to manage stress and anxiety in daily life.</p>
+                        <a href="#" class="btn">
+                            <i data-lucide="file-text" size="18"></i>
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

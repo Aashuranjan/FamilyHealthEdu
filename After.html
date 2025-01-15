@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Health Education Portal</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #2c5282;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            font-family: 'Arial Black', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #90cdf4;
+        }
+
+        .appointment-btn {
+            background-color: #48bb78;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .appointment-btn:hover {
+            background-color: #38a169;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;  /* Changed to make the image round */
+            border: 2px solid white;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.9), rgba(44, 82, 130, 0.9)),
+                        url('/api/placeholder/1200/400');
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero:hover {
+            transform: scale(1.05);
+            background-color: rgba(44, 82, 130, 1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services, .extra-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .service-card, .extra-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover, .extra-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3, .extra-card h3 {
+            color: #2c5282;
+            margin: 1rem 0;
+        }
+
+        .icon-container {
+            background-color: #ebf8ff;
+            width: 120px;
+            height: 120px;
+            border-radius: 0; /* Made square */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-container:hover {
+            transform: scale(1.1);
+        }
+
+        .icon-container img {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #2c5282;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #90cdf4;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-quick-links {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .footer-quick-links a {
+            color: #90cdf4;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+
+        .footer-quick-links a:hover {
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .emergency-contact {
+            background-color: #f56565;
+            padding: 1rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .emergency-number {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-link span {
+                display: none;
+            }
+
+            .appointment-btn span {
+                display: none;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                HEALTH LIFE
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">
+                    <i data-lucide="home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="appointment-btn" onclick="window.location.href='Appointment.html';">
+                    <i data-lucide="calendar"></i>
+                    <span>Book Appointment</span>
+                </a>
+                <a href="#" class="nav-link" onclick="window.location.href='About.html';">
+                    <i data-lucide="users"></i>
+                    <span>About Us</span>
+                </a>
+                <a href="#" class="nav-link" onclick="window.location.href='Contact.html';">
+                    <i data-lucide="phone"></i>
+                    <span>Contact Us</span>
+                </a>
+                <div class="profile">
+                    <img src="Profile.jpg" alt="Profile Picture">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to Family Health Education</h1>
+            <p>Empowering families with knowledge for better health and wellness through comprehensive education and support.</p>
+        </section>
+
+        <section class="services">
+            <div class="service-card">
+                <div class="icon-container" onclick="window.location.href='Healthedu.html';">
+                    <img src="Health.jpg" alt="Health Education Icon">
+                </div>
+                <h3>Health Education</h3>
+                <p>Access comprehensive resources and learning materials for your family's health.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-container" onclick="window.location.href='Easy.html';">
+                    <img src="Scheduling.jpg" alt="Easy Scheduling Icon">
+                </div>
+                <h3>Easy Scheduling</h3>
+                <p>Book appointments with healthcare professionals at your convenience.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-container" onclick="window.location.href='Expert.html';">
+                    <img src="Expert.jpg" alt="Expert Consultation Icon">
+                </div>
+                <h3>Expert Consultation</h3>
+                <p>Get professional advice and guidance for your health concerns.</p>
+            </div>
+        </section>
+
+        <section class="extra-sections">
+            <div class="extra-card">
+                <div class="icon-container" onclick="window.location.href='Community.html';">
+                    <img src="Join.jpg" alt="Join Community Icon">
+                </div>
+                <h3>Join Community</h3>
+                <p>Connect with like-minded individuals to share and learn about health and wellness.</p>
+            </div>
+            <div class="extra-card">
+                <div class="icon-container" onclick="window.location.href='webinar.html';">
+                    <img src="Webinar.jpg" alt="Join Webinars Icon">
+                </div>
+                <h3>Join Webinars</h3>
+                <p>Participate in live sessions with health experts and learn directly from them.</p>
+            </div>
+            <div class="extra-card">
+                <div class="icon-container" onclick="window.location.href='Articles.html';">
+                    <img src="Articles.jpg" alt="Read Articles Icon">
+                </div>
+                <h3>Read Articles</h3>
+                <p>Explore a wide range of health articles curated by experts for better living.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2025 Health Life. All Rights Reserved.</p>
+        <div>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-quick-links">
+            <a href="#">Home</a>
+            <a href="#">Our Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="contact-info">
+            <div class="emergency-contact">
+                <p><strong>Emergency Contact:</strong></p>
+                <p class="emergency-number">+91 1001 1002</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

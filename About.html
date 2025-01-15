@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Family Healthcare</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.9), rgba(44, 82, 130, 0.9)), url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5282;
+        }
+
+        .mission-values, .team-grid, .facilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card, .team-member, .facility-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .value-card img, .team-member img, .facility-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .value-card h3, .team-info h3, .facility-info h3 {
+            color: #2c5282;
+            margin-bottom: 1rem;
+        }
+
+        .value-card p, .team-info p, .facility-info p {
+            padding: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            background: #2c5282;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                margin: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>About Family Healthcare</h1>
+        <p>Dedicated to providing exceptional healthcare services with compassion and expertise since 1995</p>
+    </section>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Our Mission & Values</h2>
+            <div class="mission-values">
+                <div class="value-card">
+                    <img src="Patient.jpg" alt="Patient Care">
+                    <h3>Patient-Centered Care</h3>
+                    <p>We put our patients first, ensuring personalized care that meets individual needs and preferences.</p>
+                </div>
+                <div class="value-card">
+                    <img src="Excellence.jpg" alt="Excellence">
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in everything we do, maintaining the highest standards of medical care.</p>
+                </div>
+                <div class="value-card">
+                    <img src="Community.jpg" alt="Community Focus">
+                    <h3>Community Focus</h3>
+                    <p>We are committed to serving and improving the health of our community through education and care.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats">
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Years of Service</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Medical Experts</p>
+            </div>
+            <div class="stat-item">
+                <h3>100K+</h3>
+                <p>Patients Served</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Emergency Care</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Our Expert Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="DOC1.jpg" alt="Dr. Sarah Johnson">
+                    <div class="team-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Chief Medical Officer</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="DOC2.jpg" alt="Dr. Michael Chen">
+                    <div class="team-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Head of Cardiology</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="DOC3.jpg" alt="Dr. Emily Williams">
+                    <div class="team-info">
+                        <h3>Dr. Emily Williams</h3>
+                        <p>Head of Pediatrics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="facilities">
+                <div class="facility-card">
+                    <img src="Emergency.jpg" alt="Emergency Care">
+                    <div class="facility-info">
+                        <h3>Emergency Care</h3>
+                        <p>24/7 emergency services with state-of-the-art equipment and expert staff ready to handle any medical emergency.</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="Special.jpg" alt="Specialized Care">
+                    <div class="facility-info">
+                        <h3>Specialized Departments</h3>
+                        <p>Dedicated departments for cardiology, pediatrics, orthopedics, and more, equipped with modern medical technology.</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="Advanced.jpg" alt="Laboratory">
+                    <div class="facility-info">
+                        <h3>Advanced Laboratory</h3>
+                        <p>Modern diagnostic laboratory offering comprehensive testing services with quick and accurate results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

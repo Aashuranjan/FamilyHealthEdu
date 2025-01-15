@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitConnect - Health & Fitness Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary: #2C5282;
+            --secondary: #4FD1C5;
+            --background: #F7FAFC;
+            --white: #FFFFFF;
+            --gray: #718096;
+            --success: #48BB78;
+        }
+
+        body {
+            background-color: var(--background);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.9), rgba(44, 82, 130, 0.9)),
+                        url('/api/placeholder/1200/400');
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .communities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .community-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .community-image {
+            width: 100%;
+            height: 200px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .community-info {
+            padding: 1.5rem;
+        }
+
+        .community-category {
+            color: var(--secondary);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .community-stats {
+            display: flex;
+            gap: 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .join-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .join-btn:hover {
+            background: var(--secondary);
+        }
+
+        .categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .category-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .live-tag {
+            background: var(--success);
+            color: var(--white);
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">FitConnect</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Communities</a>
+            <a href="#">Events</a>
+            <a href="#">Profile</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Join Your Fitness Community</h1>
+            <p>Connect with like-minded people on your wellness journey</p>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn">All Communities</button>
+            <button class="category-btn">Yoga</button>
+            <button class="category-btn">HIIT</button>
+            <button class="category-btn">Nutrition</button>
+            <button class="category-btn">Mental Wellness</button>
+            <button class="category-btn">Running</button>
+        </div>
+
+        <div class="communities-grid">
+            <!-- Yoga Community -->
+            <div class="community-card">
+                <div class="community-image">
+                    <img src="Yoga.jpg" alt="Yoga Community">
+                </div>
+                <div class="community-info">
+                    <div class="community-category">Yoga</div>
+                    <h3 class="community-title">Mindful Yoga Practice</h3>
+                    <span class="live-tag">Live Session Now</span>
+                    <div class="community-stats">
+                        <span>5,234 Members</span>
+                        <span>•</span>
+                        <span>Daily Sessions</span>
+                    </div>
+                    <button class="join-btn">Join Community</button>
+                </div>
+            </div>
+
+            <!-- HIIT Community -->
+            <div class="community-card">
+                <div class="community-image">
+                    <img src="Hiit.jpg" alt="HIIT Community">
+                </div>
+                <div class="community-info">
+                    <div class="community-category">HIIT</div>
+                    <h3 class="community-title">High Intensity Heroes</h3>
+                    <span class="live-tag">Next Session: 2 PM</span>
+                    <div class="community-stats">
+                        <span>3,876 Members</span>
+                        <span>•</span>
+                        <span>Weekly Challenges</span>
+                    </div>
+                    <button class="join-btn">Join Community</button>
+                </div>
+            </div>
+
+            <!-- Nutrition Community -->
+            <div class="community-card">
+                <div class="community-image">
+                    <img src="Nutri.jpg" alt="Nutrition Community">
+                </div>
+                <div class="community-info">
+                    <div class="community-category">Nutrition</div>
+                    <h3 class="community-title">Healthy Eating Habits</h3>
+                    <span class="live-tag">Live Discussion</span>
+                    <div class="community-stats">
+                        <span>7,129 Members</span>
+                        <span>•</span>
+                        <span>Recipe Sharing</span>
+                    </div>
+                    <button class="join-btn">Join Community</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

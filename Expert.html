@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedExpert - Doctor Consultation Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary: #2C5282;
+            --secondary: #4299E1;
+            --light-blue: #EBF8FF;
+            --gray: #718096;
+            --light-gray: #F7FAFC;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .doctor-image {
+            width: 100%;
+            height: 200px;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .doctor-info {
+            padding: 1.5rem;
+        }
+
+        .doctor-specialty {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .availability {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .time-slot {
+            background: var(--light-blue);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .time-slot:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .book-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background: var(--secondary);
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MedExpert</div>
+    </nav>
+
+    <div class="hero">
+        <h1>Expert Doctor Consultation</h1>
+        <p>Connect with top medical specialists for personalized care</p>
+    </div>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search by doctor name, specialty, or condition...">
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn">All Specialties</button>
+            <button class="filter-btn">Cardiology</button>
+            <button class="filter-btn">Neurology</button>
+            <button class="filter-btn">Orthopedics</button>
+            <button class="filter-btn">Pediatrics</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div>Expert Doctors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50k+</div>
+                <div>Consultations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.9/5</div>
+                <div>Patient Rating</div>
+            </div>
+        </div>
+
+        <div class="doctors-grid">
+            <!-- Doctor Card 1 -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="DOC1.jpg" alt="Dr. Sarah Johnson">
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Cardiologist</div>
+                    <h3 class="doctor-name">Dr. Sarah Johnson</h3>
+                    <p>15+ years experience • Board Certified</p>
+                    <div class="availability">
+                        <span class="time-slot">09:00 AM</span>
+                        <span class="time-slot">11:30 AM</span>
+                        <span class="time-slot">02:00 PM</span>
+                        <span class="time-slot">04:30 PM</span>
+                    </div>
+                    <button class="book-btn">Book Consultation</button>
+                </div>
+            </div>
+
+            <!-- Doctor Card 2 -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="DOC2.jpg" alt="Dr. Michael Chen">
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Neurologist</div>
+                    <h3 class="doctor-name">Dr. Michael Chen</h3>
+                    <p>12+ years experience • Board Certified</p>
+                    <div class="availability">
+                        <span class="time-slot">10:00 AM</span>
+                        <span class="time-slot">01:30 PM</span>
+                        <span class="time-slot">03:00 PM</span>
+                        <span class="time-slot">05:30 PM</span>
+                    </div>
+                    <button class="book-btn">Book Consultation</button>
+                </div>
+            </div>
+
+            <!-- Doctor Card 3 -->
+            <div class="doctor-card">
+                <div class="doctor-image">
+                    <img src="DOC3.jpg" alt="Dr. Emily Rodriguez">
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Pediatrician</div>
+                    <h3 class="doctor-name">Dr. Emily Rodriguez</h3>
+                    <p>10+ years experience • Board Certified</p>
+                    <div class="availability">
+                        <span class="time-slot">09:30 AM</span>
+                        <span class="time-slot">11:00 AM</span>
+                        <span class="time-slot">02:30 PM</span>
+                        <span class="time-slot">04:00 PM</span>
+                    </div>
+                    <button class="book-btn">Book Consultation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+
+        .doctor-selection {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .specialty-container {
+            margin-bottom: 2rem;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .doctor-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .doctor-card:hover {
+            border-color: #2c5282;
+            background-color: #f8fafc;
+        }
+
+        .doctor-card.selected {
+            border-color: #2c5282;
+            background-color: #ebf8ff;
+        }
+
+        .doctor-info h4 {
+            color: #2c5282;
+            margin-bottom: 0.25rem;
+        }
+
+        .doctor-info p {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        button {
+            background-color: #2c5282;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2b6cb0;
+        }
+
+        @media (max-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .required {
+            color: #e53e3e;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Book an Appointment</h1>
+            <p>Fill in your details and select a doctor to schedule your appointment</p>
+        </div>
+
+        <form id="appointmentForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Patient Name <span class="required">*</span></label>
+                    <input type="text" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Age <span class="required">*</span></label>
+                    <input type="number" required min="0" max="120" placeholder="Enter your age">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" required placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Address <span class="required">*</span></label>
+                    <textarea rows="3" required placeholder="Enter your full address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>City <span class="required">*</span></label>
+                    <input type="text" required placeholder="Enter your city">
+                </div>
+
+                <div class="form-group">
+                    <label>State <span class="required">*</span></label>
+                    <input type="text" required placeholder="Enter your state">
+                </div>
+            </div>
+
+            <div class="doctor-selection">
+                <div class="specialty-container">
+                    <label>Select Specialty <span class="required">*</span></label>
+                    <select required id="specialty" onchange="updateDoctors()">
+                        <option value="">Choose specialty</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="orthopedics">Orthopedics</option>
+                    </select>
+                </div>
+
+                <div class="doctors-grid" id="doctorsGrid">
+                    <!-- Doctors will be populated based on specialty -->
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 2rem;">
+                <button type="submit">Schedule Appointment</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Sample doctors data
+        const doctors = {
+            cardiology: [
+                { name: "Dr. Sarah Johnson", specialization: "Cardiology", experience: "15 years" },
+                { name: "Dr. Michael Chen", specialization: "Cardiology", experience: "12 years" }
+            ],
+            dermatology: [
+                { name: "Dr. Emily Williams", specialization: "Dermatology", experience: "10 years" },
+                { name: "Dr. David Kim", specialization: "Dermatology", experience: "8 years" }
+            ],
+            neurology: [
+                { name: "Dr. James Wilson", specialization: "Neurology", experience: "20 years" },
+                { name: "Dr. Lisa Martinez", specialization: "Neurology", experience: "14 years" }
+            ],
+            pediatrics: [
+                { name: "Dr. Robert Brown", specialization: "Pediatrics", experience: "18 years" },
+                { name: "Dr. Maria Garcia", specialization: "Pediatrics", experience: "11 years" }
+            ],
+            orthopedics: [
+                { name: "Dr. John Smith", specialization: "Orthopedics", experience: "16 years" },
+                { name: "Dr. Rachel Lee", specialization: "Orthopedics", experience: "13 years" }
+            ]
+        };
+
+        function updateDoctors() {
+            const specialty = document.getElementById('specialty').value;
+            const doctorsGrid = document.getElementById('doctorsGrid');
+            doctorsGrid.innerHTML = '';
+
+            if (specialty && doctors[specialty]) {
+                doctors[specialty].forEach(doctor => {
+                    const doctorCard = document.createElement('div');
+                    doctorCard.className = 'doctor-card';
+                    doctorCard.onclick = function() {
+                        document.querySelectorAll('.doctor-card').forEach(card => card.classList.remove('selected'));
+                        this.classList.add('selected');
+                    };
+                    doctorCard.innerHTML = `
+                        <div class="doctor-info">
+                            <h4>${doctor.name}</h4>
+                            <p>${doctor.specialization}</p>
+                            <p>Experience: ${doctor.experience}</p>
+                        </div>
+                    `;
+                    doctorsGrid.appendChild(doctorCard);
+                });
+            }
+        }
+
+        document.getElementById('appointmentForm').onsubmit = function(e) {
+            e.preventDefault();
+            const selectedDoctor = document.querySelector('.doctor-card.selected');
+            if (!selectedDoctor) {
+                alert('Please select a doctor');
+                return;
+            }
+            alert('Appointment booking submitted successfully!');
+        };
+    </script>
+</body>
+</html>

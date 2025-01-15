@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Hub</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: #2d3748;
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: rgba(44, 82, 130, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Articles Section */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .article-card:hover {
+            transform: scale(1.02);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-content h3 {
+            color: rgba(44, 82, 130, 0.9);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: rgba(44, 82, 130, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .read-more:hover {
+            background-color: rgba(44, 82, 130, 0.7);
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: rgba(44, 82, 130, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Welcome to Articles Hub</h1>
+        <p>Explore a wide range of articles on various topics</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <section class="articles">
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x200" alt="Article 1" class="article-image">
+                <div class="article-content">
+                    <h3>Article Title 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x200" alt="Article 2" class="article-image">
+                <div class="article-content">
+                    <h3>Article Title 2</h3>
+                    <p>Curabitur vitae nunc sed velit dignissim sodales ut eu sem.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x200" alt="Article 3" class="article-image">
+                <div class="article-content">
+                    <h3>Article Title 3</h3>
+                    <p>Maecenas sed enim ut sem viverra aliquet eget sit amet.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2025 Articles Hub. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
