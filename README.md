@@ -7,7 +7,7 @@ FamilyHealthEdu is a web-based platform designed to provide accessible, reliable
 - Health tips and education resources  
 - Personalized recommendations  
 - Multi-platform accessibility
-- 
+  
 ## Getting Started  
 
 Follow the steps below to set up and run the project on your local system.  
