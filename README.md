@@ -14,9 +14,7 @@ Follow the steps below to set up and run the project on your local system.
 
 ### Prerequisites  
 Ensure you have the following installed:  
-1. [Node.js](https://nodejs.org/) (LTS version recommended)  
-2. [Git](https://git-scm.com/)  
-3. A modern web browser  
+*A modern web browser  
 
 git clone https://github.com/your-username/FamilyHealthEdut.git  
 cd FamilyHealthEdut  
